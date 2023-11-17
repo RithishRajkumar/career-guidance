@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.quiz-container {
+    background-color: #fff;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#results {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+</style>
+<body>
+    <div class="quiz-container" ng-controller="QuizController">
+        <h1>What Would You Rather Do?</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <p style="font-weight: bold; color: cyan;">What would you rather be doing right now?</p>
+                <label>
+                    <input type="radio" name="q1" ng-model="answers.q1" value="A"> A. Drawing a picture, reading a book or dancing around, just for fun.
+                </label>
+                <label>
+                    <input type="radio" name="q1" ng-model="answers.q1" value="B"> B. I'm not sure. I should probably be helping the less fortunate, babysitting, or helping around the house.
+                </label>
+                <label>
+                    <input type="radio" name="q1"  ng-model="answers.q1" value="C"> C. Singing, making someone laugh, cooking something to eat, or writing a skit for a play.
+                </label>
+                <label>
+                    <input type="radio" name="q1" ng-model="answers.q1" value="D"> D. Shooting hoops, throwing a ball around, running, something active. I'm only taking this quiz because it's raining.
+                </label>
+                <label>
+                    <input type="radio" name="q1" ng-model="answers.q1" value="E"> E. A trivia challenge or participating in a spelling bee. I know I sound like a geek, but at least I won't be a hobo when I grow up.
+                </label>
+                <label>
+                    <input type="radio" name="q1" ng-model="answers.q1" value="F"> F. Playing Man Hunt in the woods with my friends. Aw, I wish I was doing that right now! Maybe I'll call a few people.
+                </label>
+            </div>
+
+            <div class="question">
+                <p style="font-weight: bold; color: cyan;">Your little sibling is sick. What will you do to cheer them up?</p>
+                <label>
+                    <input type="radio" ng-model="answers.q2" name="q2" value="A"> A. Make them a get well soon card.
+                </label>
+                <label>
+                    <input type="radio" name="q2" ng-model="answers.q2" value="B"> B. Sing them a song I wrote myself, or maybe one of their favorite songs. I'll probably also tell them a joke.
+                </label>
+                <label>
+                    <input type="radio" name="q2" ng-model="answers.q2" value="C"> C. Why should I help them? Nothing.
+                </label>
+                <label>
+                    <input type="radio" name="q2" ng-model="answers.q2" value="D"> D. Re-enact my awesome stunt I performed in the gym.
+                </label>
+                <label>
+                    <input type="radio" name="q2" ng-model="answers.q2" value="E"> E. Uh-Oh. Get them anything they want and make sure they do everything I can so they will get better ASAP.
+                </label>
+                <label>
+                    <input type="radio" name="q2" ng-model="answers.q2" value="F"> F. Read them a book and research their sickness and tell them how to get better.
+                </label>
+            </div>
+
+            <div class="question">
+                <p style="font-weight: bold; color: cyan;">What did you get on your last Science Quiz? Honestly:</p>
+                <label>
+                    <input type="radio" name="q3" ng-model="answers.q3" value="A"> A. 105% as usual, I always make sure to do the extra credit.
+                </label>
+                <label>
+                    <input type="radio" name="q3"  ng-model="answers.q3" value="B"> B. 92%, I would have done better, but my sibling was sick (remember), and I had to take care of them.
+                </label>
+                <label>
+                    <input type="radio" name="q3" ng-model="answers.q3"  value="C"> C. Don't remind me.
+                </label>
+                <label>
+                    <input type="radio" name="q3" ng-model="answers.q3"  value="D"> D. Who cares about Science when you're excelling in gym class?
+                </label>
+                <label>
+                    <input type="radio" name="q3" ng-model="answers.q3"  value="E"> E. 83%, I would have done better, but my teacher took off for all the doodles I drew on it.
+                </label>
+                <label>
+                    <input type="radio" name="q3" ng-model="answers.q3"  value="F"> F. 70%, whoops...
+                </label>
+            </div>
+
+            <div class="question">
+                <p style="font-weight: bold; color: cyan;">In your opinion, what's the best thing to watch on TV?</p>
+                <label>
+                    <input type="radio" name="q4" ng-model="answers.q4" value="A"> A. I'm not really into TV anymore. Project Runway and other shows on Bravo are pretty good though.
+                </label>
+                <label>
+                    <input type="radio" name="q4" ng-model="answers.q4" value="B"> B. Grey's Anatomy and Mystery Diagnosis are so interesting because you never know what's going to happen, you can only hope for the best.
+                </label>
+                <label>
+                    <input type="radio" name="q4" ng-model="answers.q4" value="C"> C. Baseball, Football, Basketball, Hockey, Olympics, etc. Isn't that the only thing on TV?
+                </label>
+                <label>
+                    <input type="radio" name="q4" ng-model="answers.q4" value="D"> D. Basically everything! I really get into Talent Competition Shows and E! News though.
+                </label>
+                <label>
+                    <input type="radio" name="q4" ng-model="answers.q4" value="E"> E. TV is a waste of time. However if I must choose I'd have to go with Jeopardy. If that doesn't count I'd pick a blank screen.
+                </label>
+                <label>
+                    <input type="radio" name="q4" ng-model="answers.q4" value="F"> F. Fear Factor, Survivor, South Park, Family Guy, King of the Hill and shows with construction, but only the ones where things go majorly wrong.
+                </label>
+            </div>
+
+            <div class="question">
+                <p style="font-weight: bold; color: cyan;">The best part about school is:</p>
+                <label>
+                    <input type="radio" name="q5" ng-model="answers.q5" value="A"> A. DRAMA CLUB! But that's after school...Oh well!
+                </label>
+                <label>
+                    <input type="radio" name="q5" ng-model="answers.q5" value="B"> B. The learning part? Extra clubs are a waste of energy.
+                </label>
+                <label>
+                    <input type="radio" name="q5" ng-model="answers.q5" value="C"> C. Art Class, it's the only class where you aren't denied your rights of free expression as a citizen.
+                </label>
+                <label>
+                    <input type="radio" name="q5" ng-model="answers.q5" value="D"> D. Gym, how many times do I have to say it.
+                </label>
+                <label>
+                    <input type="radio" name="q5" ng-model="answers.q5" value="E"> E. I know most people pick lunch but isn't the best part leaving? duh
+                </label>
+                <label>
+                    <input type="radio" name="q5" ng-model="answers.q5" value="F"> F. Although it doesn't happen too often, going to get your eye exam, or your height and weight checked during medical checkups at school. I love seeing all the doctor's equipment, it's so shiny.
+                </label>
+            </div>
+
+            <div class="question">
+                <p style="font-weight: bold; color: cyan;">If someone asked you what your favorite color was and why, how would you respond?</p>
+                <label>
+                    <input type="radio" name="q6" ng-model="answers.q6" value="A"> A. Pink, Red, or Yellow! They are all so spontaneous and attention-grabbing.
+                </label>
+                <label>
+                    <input type="radio" name="q6" ng-model="answers.q6" value="B"> B. All colors, especially when they are in patterns or splatters, they look...Uhm...Ask the smart kid for the adjective I'm looking for.
+                </label>
+                <label>
+                    <input type="radio" name="q6" ng-model="answers.q6" value="C"> C. White only. It makes me feel welcome.
+                </label>
+                <label>
+                    <input type="radio" name="q6" ng-model="answers.q6" value="D"> D. Green. It reminds me of being out in the woods playing a game, or being at the top of a mountain looking down at all the vast valleys of trees.
+                </label>
+                <label>
+                    <input type="radio" name="q6" ng-model="answers.q6" value="E"> E. Blue. Are you seriously asking why? It just is.
+                </label>
+            </div>
+
+            <button type="submit" ng-click="calculateScore()">Submit</button>
+        </form>
+        <div id="results"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
